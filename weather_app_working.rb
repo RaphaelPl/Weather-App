@@ -50,7 +50,7 @@ class Location
 end
 
 #set api for weather access
-ForecastIO.api_key = 'YOUR API KEY HERE'
+ForecastIO.api_key = '05cd0f8759c4e210a946e69d9b339a45'
 #set default parameters for weather gem
 ForecastIO.default_params = { units: 'si' }
 #getting data for given location and storing it as a hash
