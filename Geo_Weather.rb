@@ -27,8 +27,26 @@ def location_assign
     return Location.new("#{result[0].city}, #{result[0].state}",ForecastIO.forecast(result[0].latitude,result[0].longitude))   #using geocoder longatude and latitude to get forecast data and initialise a location veriable,
 end
 
+#validates user input in regards to whether they wish to add an aditional location
+def another
+    loop do
+        case gets.downcase.chomp        #loops until user input is either yes or no; returns true or false respectively
+        when 'no'
+            return false
+        when 'n'
+            return false                
+        when 'yes'
+            return true
+        when 'y'
+            return true
+        else
+            next
+        end
+    end
+end 
+
 #set api for weather access
-ForecastIO.api_key = 'YOUR API KEY HERE'
+ForecastIO.api_key = '05cd0f8759c4e210a946e69d9b339a45'
 #set default parameters for weather gem
 ForecastIO.default_params = { units: 'si' }
 #initialising variables
@@ -43,12 +61,10 @@ while additional == true
         place.daily_weather                 #execute class method from location
         table = place.display(table)        #execute class method from location, see location file for detailed comments
         puts table
-        puts "Would you like to add an aditional location?"
-        if gets.downcase.chomp != 'yes'
-            puts "Thanks for using Geo-Weather!\nHave a good day!"
-            additional = false              #stops loop if user does not wish to make an additional search
-        end
+        puts "Would you like to add an additional location?"
+        additional = another
     rescue NoMethodError                    #rescues from fatal error occuring when users enter a location that cannot be found by search
         puts "No location matching the supplied details found.\nPlease enter a real location."
     end
 end
+puts "Thankyou for using Geo-Weather.\nHave a good day!"        #informs user that they should have a good day
