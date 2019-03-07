@@ -25,7 +25,7 @@ Basic Features:
 
 * [Description](#Description)
   [Functionality](#Functionality)
-* [Instructins for use](#Instructions_for_use)
+* [Instructions for use](#Instructions_for_use)
 * [Design and planning process](#design_and_planning_process)
   * app idea brainstorming
   * user flow
